@@ -4,13 +4,17 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - name: Build EXE
         run: |
           npm install
           npx electron-packer . "The Labirent" --platform=win32 --arch=x64 --overwrite
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: The-Labirent-EXE
           path: "The Labirent-win32-x64/"
