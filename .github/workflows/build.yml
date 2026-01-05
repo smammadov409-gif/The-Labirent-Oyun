@@ -1,0 +1,16 @@
+name: Build My Exe
+on: push
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: |
+          npm install
+          npx electron-packer . "The Labirent" --platform=win32 --arch=x64 --overwrite
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: The-Labirent-EXE-Dosyasi
+          path: "The Labirent-win32-x64/"
