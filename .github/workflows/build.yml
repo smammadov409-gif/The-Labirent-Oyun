@@ -5,7 +5,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: Build EXE
         run: |
           npm install
           npx electron-packer . "The Labirent" --platform=win32 --arch=x64 --overwrite
