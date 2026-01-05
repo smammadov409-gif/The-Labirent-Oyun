@@ -16,5 +16,5 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name: The-Labirent-EXE
+          name: The-Labirent-EXE-Dosyasi
           path: "The Labirent-win32-x64/"
